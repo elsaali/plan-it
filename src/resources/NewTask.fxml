@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+    <Label text="Add New Task" style="-fx-font-size: 24;"/>
+</VBox>
