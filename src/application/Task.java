@@ -1,15 +1,26 @@
 package application;
 
+import java.time.LocalDate;
+
 public class Task {
     private String name;
-    private String date;
-    private String priority;
+    private LocalDate dueDate;
 
-    public Task(String name, String date, String priority) {
+    public Task(String name, LocalDate dueDate) {
         this.name = name;
-        this.date = date;
-        this.priority = priority;
+        this.dueDate = dueDate;
     }
 
-    // Getters and setters here
+    public String getName() {
+        return name;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    @Override
+    public String toString() {
+        return name + " - Due: " + dueDate;
+    }
 }

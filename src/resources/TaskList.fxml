@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER" spacing="20" style="-fx-padding: 20;">
-    <Label text="Task List" style="-fx-font-size: 24;"/>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="application.TaskListController" spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+    <Label fx:id="reminderLabel" text="No reminders for today" style="-fx-font-size: 14; -fx-text-fill: red;"/>
+    <ListView fx:id="taskListView" prefHeight="200" prefWidth="300"/>
+    <Button text="Back" onAction="#goBack" />
 </VBox>

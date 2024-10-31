@@ -13,23 +13,23 @@ import java.io.IOException;
 public class HomePageController {
 
     @FXML
-    private void showTaskList(ActionEvent event) {
-        loadScene(event, "/TaskList.fxml");
+    private void openNewTask(ActionEvent event) {
+        loadScene(event, "/NewTask.fxml");
     }
 
     @FXML
-    private void openNewTask(ActionEvent event) {
-        loadScene(event, "/NewTask.fxml");
+    private void showTaskList(ActionEvent event) {
+        loadScene(event, "/TaskList.fxml");
     }
 
     private void loadScene(ActionEvent event, String fxmlFile) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root, 800, 600));  // Set a consistent size for new scenes
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
-
