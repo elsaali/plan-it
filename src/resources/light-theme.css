@@ -1,0 +1,17 @@
+.root {
+    -fx-background-color: lightgray;
+    -fx-text-fill: black;
+}
+
+.label {
+    -fx-text-fill: black;
+}
+
+.button {
+    -fx-background-color: #f0f4f8;
+    -fx-text-fill: black;
+}
+
+.progress-bar {
+    -fx-accent: #4CAF50;
+}

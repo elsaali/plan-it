@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewTaskController" alignment="CENTER" spacing="15" prefWidth="600" prefHeight="400">
     <!-- Title for Add Task Page -->
-    <Label text="Add New Task" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <Label text="Add New Task" style="-fx-font-family: 'Arial'; -fx-font-size: 24px; -fx-font-weight: bold;" />
 
-    <!-- Label and TextField for Task Name/Description -->
     <Label text="Task Description:" />
     <TextField fx:id="taskNameField" promptText="Enter the task description here" maxWidth="300" />
 
-    <!-- DatePicker for Due Date -->
     <Label text="Due Date:" />
     <DatePicker fx:id="taskDueDateField" promptText="Select due date" maxWidth="200" />
 
-    <!-- Save and Back Buttons -->
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Save Task" onAction="#saveTask" />
-        <Button text="Back" onAction="#goBack" />
-    </HBox>
+    <Label text="Priority:" />
+    <ComboBox fx:id="priorityComboBox" prefWidth="200"/>
 
-    <padding>
-        <Insets top="20" bottom="20" left="20" right="20" />
-    </padding>
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="saveButton" text="Save Task" onAction="#saveTask" />
+        <Button fx:id="cancelButton" text="Back" onAction="#goBack" />
+    </HBox>
 </VBox>

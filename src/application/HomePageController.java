@@ -22,14 +22,21 @@ public class HomePageController {
         loadScene(event, "/TaskList.fxml");
     }
 
+    @FXML
+    private void syncWithCanvas(ActionEvent event) {
+        CanvasAPI.syncAssignments();  // Ensure this calls syncAssignments
+        // Update the UI or task list as needed here
+    }
+
     private void loadScene(ActionEvent event, String fxmlFile) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 600));  // Set a consistent size for new scenes
+            stage.setScene(new Scene(root, 800, 600));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
+
