@@ -5,29 +5,25 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.geometry.Insets?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:id="root" fx:controller="application.DashboardController" alignment="CENTER" spacing="15" style="-fx-background-color: lightgray; -fx-padding: 20;">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="application.DashboardController"
+      alignment="CENTER" spacing="20"
+      styleClass="content-box">
 
-    <!-- Title of the Dashboard -->
-    <Label text="Plan It Dashboard" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
-
-    <!-- Upcoming Tasks Section -->
-    <Label text="Upcoming Tasks" style="-fx-font-size: 18;"/>
+    <Label text="Plan It Dashboard" styleClass="header-title"/>
+    <Label text="Upcoming Tasks" styleClass="section-title"/>
     <ListView fx:id="taskListView" prefHeight="200" prefWidth="400"/>
 
-    <!-- Progress Section with Progress Bar and Pie Chart -->
-    <Label text="Progress" style="-fx-font-size: 18;"/>
-    <ProgressBar fx:id="progressBar" prefWidth="400" style="-fx-accent: #4CAF50;"/>
+    <Label text="Progress" styleClass="section-title"/>
+    <ProgressBar fx:id="progressBar" prefWidth="400"/>
     <PieChart fx:id="taskProgressChart" prefWidth="400" prefHeight="300"/>
 
-    <!-- Buttons for Actions -->
-    <VBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
-        <Button text="Dark Theme" onAction="#applyDarkTheme" style="-fx-font-size: 16;"/>
-        <Button text="Light Theme" onAction="#applyLightTheme" style="-fx-font-size: 16;"/>
-        <Button text="Sync with Canvas" onAction="#syncWithCanvas" style="-fx-font-size: 16;"/>
-        <Button text="Add New Task" onAction="#openNewTask" style="-fx-font-size: 16;"/>
-        <Button text="Go Back to Home" onAction="#goBackToHome" style="-fx-font-size: 16;"/>
+    <VBox alignment="CENTER" spacing="10">
+        <Button text="Dark Theme" onAction="#applyDarkTheme" styleClass="action-button"/>
+        <Button text="Light Theme" onAction="#applyLightTheme" styleClass="action-button"/>
+        <Button text="Sync with Canvas" onAction="#syncWithCanvas" styleClass="action-button"/>
+        <Button text="Add New Task" onAction="#openNewTask" styleClass="action-button"/>
+        <Button text="Go Back to Home" onAction="#goBackToHome" styleClass="action-button"/>
     </VBox>
-
 </VBox>
