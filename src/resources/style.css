@@ -1,0 +1,40 @@
+/* General container styling */
+.content-box {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0, 5);
+}
+
+/* Header title styling */
+.header-title {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Section title styling */
+.section-title {
+    -fx-font-size: 18;
+    -fx-text-fill: #666666;
+}
+
+/* Button styling with hover effect */
+.action-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+}
+
+.action-button:hover {
+    -fx-background-color: #45a049;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.3, 0, 2);
+}
+
+.action-button:pressed {
+    -fx-background-color: #3e8e41;
+}
