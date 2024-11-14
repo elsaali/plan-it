@@ -46,33 +46,49 @@ public class NewTaskController {
     @FXML
     public void saveTask(ActionEvent event) {
         String taskName = taskNameField.getText();
-        LocalDate dueDate = taskDueDateField.getValue();
-        String priority = priorityComboBox.getValue();
+        LocalDate taskDueDate = taskDueDateField.getValue();
+        String taskPriority = priorityComboBox.getValue();
 
-        if (taskName.isEmpty() || dueDate == null || priority == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill in all fields.");
+        // Validate the input
+        if (taskName != null && taskDueDate != null && taskPriority != null) {
+            // Create a new Task object
+            Task newTask = new Task(taskName, taskDueDate, taskPriority);
+            // Add the task to the TaskManager (static list of tasks)
+            TaskManager.addTask(newTask);
+
+            // Navigate back to the Dashboard (not closing the window)
+            navigateToDashboard(event);
+        } else {
+            // Show an error alert if the fields are incomplete
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields.");
             alert.showAndWait();
-            return;
         }
+    }
 
-        // Create new task with priority
-        Task task = new Task(taskName, dueDate, priority);
-        TaskManager.addTask(task);
+    private void navigateToDashboard(ActionEvent event) {
+        try {
+            // Load the Dashboard view
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Dashboard.fxml"));
+            Parent root = loader.load();
 
-        // Check for achievements after adding the task
-        AchievementService.checkAchievements(task);
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 600));
 
-        // Confirmation alert
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Task saved successfully.");
-        alert.showAndWait();
-
-        // Clear input fields after saving
-        taskNameField.clear();
-        taskDueDateField.setValue(null);
-        priorityComboBox.getSelectionModel().clearSelection();
-
-        // Navigate back to Dashboard after saving
-        goBack(event);
+            // Show the stage (this will display the Dashboard scene)
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Show error alert if loading the Dashboard fails
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to load the Dashboard.");
+            alert.showAndWait();
+        }
     }
 
     @FXML

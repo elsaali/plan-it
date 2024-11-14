@@ -6,6 +6,6 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="application.TaskListController" spacing="10" alignment="CENTER" style="-fx-padding: 20;">
     <Label fx:id="reminderLabel" text="No reminders for today" style="-fx-font-size: 14; -fx-text-fill: red;"/>
-    <ListView fx:id="taskListView" prefHeight="200" prefWidth="300"/>
+    <ListView fx:id="taskListView" prefHeight="400" prefWidth="600"/>
     <Button text="Back" onAction="#goBack" />
 </VBox>

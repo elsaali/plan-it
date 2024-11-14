@@ -60,14 +60,46 @@ public class DashboardController {
 
     @FXML
     private void openNewTask(ActionEvent event) {
-        System.out.println("Add New Task clicked.");
-        loadScene(event, "/NewTask.fxml", "Add New Task");
+        try {
+            // Load the new task scene
+            Parent root = FXMLLoader.load(getClass().getResource("/NewTask.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set a fixed size for the window
+            stage.setWidth(800);  // Set fixed width
+            stage.setHeight(600); // Set fixed height
+
+            // Show the new scene
+            stage.setScene(new Scene(root, 800, 600));  // Ensure the new scene has a fixed size too
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void goBackToHome(ActionEvent event) {
-        System.out.println("Go Back to Home clicked.");
-        loadScene(event, "/HomePage.fxml", "Home Page");
+        try {
+            // Load the HomePage.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/HomePage.fxml"));
+
+            // Get the current stage (window)
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the scene to the new root (HomePage.fxml)
+            Scene scene = new Scene(root);
+
+            // Set a fixed size for the window (you can adjust the size here as needed)
+            stage.setScene(scene);
+
+            // Optionally, set the window size explicitly
+            stage.setWidth(800);   // Set width of the window
+            stage.setHeight(600);  // Set height of the window
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
