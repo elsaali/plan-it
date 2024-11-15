@@ -72,15 +72,34 @@ public class TaskListController {
         }
     }
 
+
     @FXML
-    private void goBack(ActionEvent event) {
+    private void openNewTask(ActionEvent event) {
+        loadScene(event, "/NewTask.fxml");
+    }
+
+    @FXML
+    private void syncWithCanvas(ActionEvent event) {
+        CanvasAPI.syncAssignments();  // Ensure this calls syncAssignments
+        showInfoAlert("Canvas Sync", "Syncing with Canvas is not implemented yet.");
+    }
+
+    private void loadScene(ActionEvent event, String fxmlFile) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/HomePage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 500, 600));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showInfoAlert(String title, String message) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewTaskController" alignment="CENTER" spacing="15" prefWidth="600" prefHeight="400">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewTaskController" alignment="CENTER" spacing="15" prefWidth="600" prefHeight="400">
     <!-- Title for Add Task Page -->
     <Label text="Add New Task" style="-fx-font-family: 'Arial'; -fx-font-size: 24px; -fx-font-weight: bold;" />
 

@@ -56,8 +56,8 @@ public class NewTaskController {
             // Add the task to the TaskManager (static list of tasks)
             TaskManager.addTask(newTask);
 
-            // Navigate back to the Dashboard (not closing the window)
-            navigateToDashboard(event);
+            // Navigate back to the HomePage
+            navigateToTaskList(event);
         } else {
             // Show an error alert if the fields are incomplete
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -68,25 +68,24 @@ public class NewTaskController {
         }
     }
 
-    private void navigateToDashboard(ActionEvent event) {
+    private void navigateToTaskList(ActionEvent event) {
         try {
-            // Load the Dashboard view
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TaskList.fxml"));
             Parent root = loader.load();
 
-            // Get the current stage (window) and set the new scene
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 600));
+            Scene scene = new Scene(root, 500, 600);
+            scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
 
-            // Show the stage (this will display the Dashboard scene)
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-            // Show error alert if loading the Dashboard fails
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("Failed to load the Dashboard.");
+            alert.setContentText("Failed to load the TaskList.");
             alert.showAndWait();
         }
     }
@@ -94,14 +93,15 @@ public class NewTaskController {
     @FXML
     private void goBack(ActionEvent event) {
         try {
-            System.out.println("Navigating back to Dashboard...");
-            Parent root = FXMLLoader.load(getClass().getResource("/Dashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/TaskList.fxml"));
+
+            Scene scene = new Scene(root, 500, 600);
+            scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 600));
-            stage.setMaximized(true);
+            stage.setScene(scene);  // Ensure fixed size for the scene
             stage.show();
         } catch (IOException e) {
-            System.err.println("Error loading Dashboard.fxml");
             e.printStackTrace();
         }
     }

@@ -73,7 +73,7 @@ public class CalendarViewController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/NewTask.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 500, 600));
             stage.setMaximized(true);  // Full-screen mode
             stage.show();
         } catch (IOException e) {

@@ -1,11 +1,16 @@
 /* General container styling */
 .content-box {
-    -fx-background-color: white;
+    -fx-background-color: #0C134F;
     -fx-padding: 20;
     -fx-border-color: #E0E0E0;
     -fx-border-width: 1;
     -fx-background-radius: 10;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0, 5);
+}
+
+.task-list-box {
+    -fx-background-color: white;       /* Background color */
+    -fx-background-radius: 10;         /* Radius for rounded corners */   /* Border color */
 }
 
 /* Header title styling */
