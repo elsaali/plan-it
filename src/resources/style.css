@@ -43,3 +43,20 @@
 .action-button:pressed {
     -fx-background-color: #3e8e41;
 }
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-border-radius: 10; /* Same as the container */
+    -fx-background-radius: 10; /* Same as the container */
+}
+
+/* Apply styling for each ListView cell */
+.list-view .cell {
+    -fx-background-color: transparent;
+    -fx-border-radius: 10; /* Ensure rounded corners for individual cells */
+    -fx-background-radius: 10; /* Ensure rounded corners for individual cells */
+}
+
+.list-view .cell:hover {
+    -fx-background-color: #8E70A7; /* Light gray background on hover */
+}

@@ -4,14 +4,35 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
 
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TaskListController" style="-fx-background-color: #433878; -fx-padding: 0px;">
+    <!-- Top Section (Title and Reminder) -->
+    <top>
+        <VBox spacing="5" style="-fx-padding: 10px;">
+            <!-- Title: "Plan It!" -->
+            <HBox alignment="TOP_LEFT">
+                <Label text="Plan It!" style="-fx-font-family: 'Helvetica'; -fx-font-weight: bold; -fx-font-size: 30px; -fx-text-fill: #FFE1FF;"/>
+            </HBox>
+            <!-- Reminder Label -->
+            <HBox alignment="CENTER" style="-fx-padding: 10px;">
+                <Label fx:id="reminderLabel" text="No reminders for today" style="-fx-font-family: 'Helvetica'; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #FFE1FF;" />
+            </HBox>
+        </VBox>
+    </top>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TaskListController" spacing="10" alignment="CENTER" style="-fx-background-color: #433878; -fx-padding: 20px;">
-    <HBox alignment="TOP_LEFT" style="-fx-padding: 0;">
-        <Label text="Plan It!" style="-fx-font-family: 'Helvetica'; -fx-font-weight: bold; -fx-font-size: 30px; -fx-text-fill: #FFE1FF;"/>
-    </HBox>
-    <Label fx:id="reminderLabel" text="No reminders for today" style="-fx-font-family: 'Helvetica'; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #FFE1FF;"/>
-    <ListView fx:id="taskListView" prefHeight="400" prefWidth="600" styleClass="task-list-box"/>
-    <Button text="Sync with Canvas" onAction="#syncWithCanvas"/>
-    <Button text="Add New Task" onAction="#openNewTask" style="-fx-font-size: 16;"/>
-</VBox>
+    <!-- Center Section (Task List) -->
+    <center>
+        <VBox maxHeight="600" maxWidth="400" style="-fx-padding: 0;">
+            <ListView fx:id="taskListView" maxHeight="600" maxWidth="400" styleClass="task-list-box" />
+        </VBox>
+    </center>
+
+    <!-- Bottom Section (Buttons) -->
+    <bottom>
+        <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20px;">
+            <Button text="Sync with Canvas" onAction="#syncWithCanvas" style="-fx-font-size: 16;"/>
+            <Button text="Add New Task" onAction="#openNewTask" style="-fx-font-size: 16;"/>
+        </VBox>
+    </bottom>
+</BorderPane>
