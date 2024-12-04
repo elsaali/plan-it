@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TaskListController" style="-fx-background-color: #433878; -fx-padding: 0px;">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TaskListController" styleClass="content-box">
     <!-- Top Section (Title and Reminder) -->
     <top>
         <VBox spacing="5" style="-fx-padding: 10px;">
@@ -31,8 +31,8 @@
     <!-- Bottom Section (Buttons) -->
     <bottom>
         <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20px;">
-            <Button text="Sync with Canvas" onAction="#syncWithCanvas" style="-fx-font-size: 16;"/>
-            <Button text="Add New Task" onAction="#openNewTask" style="-fx-font-size: 16;"/>
+            <Button text="Sync with Canvas" onAction="#syncWithCanvas" styleClass="action-button"/>
+            <Button text="Add New Task" onAction="#openNewTask" styleClass="action-button"/>
         </VBox>
     </bottom>
 </BorderPane>

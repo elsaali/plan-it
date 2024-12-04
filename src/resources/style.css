@@ -1,11 +1,12 @@
 /* General container styling */
 .content-box {
-    -fx-background-color: #0C134F;
-    -fx-padding: 20;
-    -fx-border-color: #E0E0E0;
-    -fx-border-width: 1;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0, 5);
+    -fx-background-image: url("file:src/resources/SpaceBackground.jpeg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
 }
 
 .task-list-box {
@@ -28,20 +29,29 @@
 
 /* Button styling with hover effect */
 .action-button {
-    -fx-background-color: #4CAF50;
+    -fx-background-color: linear-gradient(to right, #6A0DAD, #9B4F96);
     -fx-text-fill: white;
     -fx-font-size: 16;
     -fx-padding: 10 20;
     -fx-background-radius: 5;
+    -fx-border-color: #E4B1F0;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.5, 0, 3);
 }
 
 .action-button:hover {
-    -fx-background-color: #45a049;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.3, 0, 2);
+    -fx-background-color: linear-gradient(to right, #9B4F96, #BC8BCC);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 3);
+    -fx-border-color: #E4B1F0;
+    -fx-opacity: 0.85;
 }
 
 .action-button:pressed {
-    -fx-background-color: #3e8e41;
+    -fx-background-color: #8A2BE2;
+    -fx-background-radius: 5;
+    -fx-border-color: #E4B1F0
 }
 
 .list-view {
@@ -60,3 +70,5 @@
 .list-view .cell:hover {
     -fx-background-color: #8E70A7; /* Light gray background on hover */
 }
+
+
