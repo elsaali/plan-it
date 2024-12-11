@@ -2,16 +2,16 @@ package application;
 
 import java.time.LocalDate;
 
-public class Task {
+public class Task implements Comparable<Task> {
     private String name;
     private LocalDate dueDate;
-    private String priority;
+    private Priority priority;
     private boolean completed;
 
     public Task(String name, LocalDate dueDate, String priority) {
         this.name = name;
         this.dueDate = dueDate;
-        this.priority = priority;
+        this.priority = Priority.fromString(priority);
         this.completed = false; // Default to not completed
     }
 
@@ -23,7 +23,7 @@ public class Task {
         return dueDate;
     }
 
-    public String getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
@@ -37,6 +37,17 @@ public class Task {
 
     @Override
     public String toString() {
-        return name + " - Due: " + dueDate + " - Priority: " + priority + (completed ? " (Completed)" : "");
+        return name + " - Due: " + dueDate + " - Priority: " + priority.name() + (completed ? " (Completed)" : "");
+    }
+
+    @Override
+    public int compareTo(Task other) {
+        int dueDateComparison = this.dueDate.compareTo(other.dueDate);
+
+        if (dueDateComparison != 0) {
+            return dueDateComparison;
+        }
+
+        return Integer.compare(this.priority.getPriorityValue(), other.priority.getPriorityValue());
     }
 }
