@@ -1,6 +1,8 @@
 package application;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.DayOfWeek;
 
 public class Task implements Comparable<Task> {
     private String name;
@@ -37,7 +39,10 @@ public class Task implements Comparable<Task> {
 
     @Override
     public String toString() {
-        return name + " - Due: " + dueDate + " - Priority: " + priority.name() + (completed ? " (Completed)" : "");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, M/d");
+        String formattedDate = dueDate.format(formatter);
+
+        return name + " - Due: " + formattedDate + " - Priority: " + priority.name() + (completed ? " (Completed)" : "");
     }
 
     @Override
